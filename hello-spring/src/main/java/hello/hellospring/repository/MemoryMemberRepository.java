@@ -12,6 +12,7 @@ public class MemoryMemberRepository implements MemberRepository {
     @Override
     public Member save(Member member) {
          member.setId(++sequence);
+         store.put(member.getId(),member);
          return member;
     }
 
@@ -24,6 +25,7 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> findByName(String name) {
         return store.values().stream()
                 .filter(member -> member.getName().equals(name))
+                //하나라도 찾는 거(하나라도 찾으면 바로 반환 없으면 optional에 null이 포함돼 반환.
                 .findAny();
     }
 
@@ -31,5 +33,9 @@ public class MemoryMemberRepository implements MemberRepository {
     public List<Member> findAll() {
 
         return new ArrayList<>(store.values());
+    }
+
+    public void clearStore(){
+        store.clear();
     }
 }
