@@ -10,7 +10,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MemberController {
 
-    private final MemberService memberService;
+    private final  MemberService memberService;
+
+    //세터 주입은 나중에 해당 함수로 변경할 수 있기 때문에 권장하지 않음
+//    @Autowired
+//    public void setMemberService(MemberService memberService){
+//        this.memberService = memberService;
+//    }
 
     @Autowired
     public MemberController(MemberService memberService){
