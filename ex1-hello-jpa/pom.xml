@@ -19,6 +19,12 @@
         </plugins>
     </build>
     <dependencies>
+        <!-- JAXB 라이브러리 -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
         <!-- JPA 하이버네이트 -->
         <dependency>
             <groupId>org.hibernate</groupId>
