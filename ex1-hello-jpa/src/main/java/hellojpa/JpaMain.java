@@ -17,6 +17,8 @@ public class JpaMain {
 
         //멤버 저장
 //        try{
+        Member member = new Member();
+
 //
 //
 //        Member member = new Member();
@@ -54,12 +56,11 @@ public class JpaMain {
 //            em.flush();
 //            System.out.println("=================================");
 
-            Member member = em.find(Member.class, 150L);
-            member.setName("AAAAA");
+/*            Member member = em.find(Member.class, 150L);
 
             em.clear();
 
-            Member member2 = em.find(Member.class, 150L);
+            Member member2 = em.find(Member.class, 150L);*/
 
 //            em.detach(member);
 //            if(member.getName().equals("ZZZZZZ")){{
