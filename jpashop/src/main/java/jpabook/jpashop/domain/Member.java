@@ -7,14 +7,28 @@ import javax.persistence.Id;
 
 @Entity
 public class Member {
+
     @Id
-    @GeneratedValue // 생략하면 AUTO
-    @Column(name="MEMBER_ID")
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
+
     private String name;
+
     private String city;
+
     private String street;
+
     private String zipcode;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -46,16 +60,5 @@ public class Member {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-
 
 }

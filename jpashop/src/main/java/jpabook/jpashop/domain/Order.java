@@ -4,15 +4,15 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "ORDERS")
+@Table(name="ORDERS")
 public class Order {
-
     @Id
     @GeneratedValue
-    @Column(name="ORDERS_ID")
+    @Column(name="ORDER_ID")
     private Long id;
 
-    @Column(name = "MEMBER_ID")
+    @Column(name="MEMBER_ID")
+
     private Long memberId;
 
     private LocalDateTime orderDate;
@@ -51,4 +51,6 @@ public class Order {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
+
+
 }
