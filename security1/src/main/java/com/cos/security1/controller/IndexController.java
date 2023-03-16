@@ -42,10 +42,11 @@ public class IndexController {
 
     @GetMapping("/test/oauth/login")
     public @ResponseBody String testOAuthLogin(Authentication authentication,
-                                          @AuthenticationPrincipal PrincipalDetails userDetails){ // 현재 사용자 정보를 가지고 있는 UserDetails을 상속받은 PrincipalDetails  DI주입
+                                          @AuthenticationPrincipal OAuth2User oauth){ // 현재 사용자 정보를 가지고 있는 UserDetails을 상속받은 PrincipalDetails  DI주입
         System.out.println("/test/login ===================");
-        OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
+        OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal(); // Oauth2User객체로 다운캐스팅
         System.out.println("authentication: " + oauth2User.getAttributes());
+        System.out.println("oauth2User: " + oauth.getAttributes());
 
 
         return "OAuth 세션 정보 확인하기";
@@ -62,7 +63,8 @@ public class IndexController {
         return "index"; // This code will call the file located in src/main/resources/templates/index.mustache
     }
     @GetMapping("/user")
-    public @ResponseBody String user(){
+    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principalDetails){
+        System.out.println("principalDetails" + principalDetails.getUser());
         return "user";
     }
 
