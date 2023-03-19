@@ -12,10 +12,12 @@ public class Security1Application {
 
 		SpringApplication.run(Security1Application.class, args);
 	}
-//	@Bean
-//	public BCryptPasswordEncoder encodePwd(){
-//		return new BCryptPasswordEncoder();
-//	}
+
+	@Bean
+	public BCryptPasswordEncoder encodePwd(){
+		return new BCryptPasswordEncoder();
+	}
+
 }
 
 
